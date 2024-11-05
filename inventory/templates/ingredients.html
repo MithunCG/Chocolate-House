@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ingredients</title>
+    <style>
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fdf3e6;
+    color: #4b3f3c;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Page Header */
+h1 {
+    font-size: 2.2em;
+    color: #4b2e2b;
+    margin-bottom: 20px;
+}
+
+/* List of Ingredients */
+ul {
+    list-style-type: none;
+    padding-left: 0;
+    width: 100%;
+    max-width: 600px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Back Link Styling */
+a {
+    font-size: 1em;
+    color: #7b4e4a;
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid #7b4e4a;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+a:hover {
+    background-color: #7b4e4a;
+    color: #fff;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    a {
+        font-size: 0.9em;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <h1>Ingredients</h1>
+    <ul>
+        {% for ingredient in ingredients %}
+            <li>{{ ingredient }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'home' %}">Back to Flavors</a>
+</body>
+</html>

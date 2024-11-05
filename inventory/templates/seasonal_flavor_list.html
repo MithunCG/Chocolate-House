@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fdf3e6;
+    color: #4b3f3c;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Page Header */
+h1 {
+    font-size: 2em;
+    color: #4b2e2b;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Add Flavor Link */
+a {
+    display: inline-block;
+    background-color: #b93a2c;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+a:hover {
+    background-color: #a32f24;
+}
+
+/* List of Seasonal Flavors */
+ul {
+    list-style-type: none;
+    padding-left: 0;
+    width: 100%;
+    max-width: 600px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Edit and Delete Links */
+a.edit, a.delete {
+    color: #4b3f3c;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+a.edit:hover, a.delete:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    a {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <!-- seasonal_flavor_list.html -->
+<h1>Seasonal Flavors</h1>
+<a href="{% url 'seasonal_flavor_create' %}">Add Seasonal Flavor</a>
+<ul>
+    {% for flavor in flavors %}
+        <li>
+            {{ flavor.name }} - {{ flavor.description }} 
+            <a href="{% url 'seasonal_flavor_update' flavor.pk %}">Edit</a>
+            <a href="{% url 'seasonal_flavor_delete' flavor.pk %}">Delete</a>
+        </li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>
+
+

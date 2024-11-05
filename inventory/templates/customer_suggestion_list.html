@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Suggestions - Chocolate House</title>
+    <style>
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fdf3e6;
+    color: #4b3f3c;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+/* Main Container */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Titles */
+h2 {
+    font-size: 1.8em;
+    color: #4b2e2b;
+    margin-bottom: 15px;
+}
+
+/* Form Styling */
+form {
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #7b4e4a;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #5d3d3a;
+}
+
+/* List of Suggestions */
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+strong {
+    font-weight: bold;
+    color: #4b2e2b;
+}
+
+p {
+    color: #7b4e4a;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+    color: #7b4e4a;
+}
+
+footer p {
+    font-size: 0.9em;
+}
+a {
+    font-size: 1em;
+    color: #4b3f3c;
+    text-decoration: none;
+    border: 1px solid #4b3f3c;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+a:hover {
+    background-color: #4b3f3c;
+    color: #fff;
+}
+
+    </style>
+</head>
+<body>
+   
+
+    <main>
+        <section>
+            <h2>Submit Your Suggestion</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}  <!-- Render the form fields -->
+                <button type="submit">Submit Suggestion</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Existing Suggestions</h2>
+            {% if suggestions %}
+                <ul>
+                    {% for suggestion in suggestions %}
+                        <li>
+                            <strong>{{ suggestion.flavor }}</strong> by {{ suggestion.customer_name }} 
+                            {% if suggestion.allergy_concern %}
+                                (Allergy Concern: {{ suggestion.allergy_concern }})
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No suggestions yet. Be the first to submit!</p>
+            {% endif %}
+
+            <br>
+<a href="{% url 'home' %}">Home</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Chocolate House</p>
+    </footer>
+</body>
+</html>

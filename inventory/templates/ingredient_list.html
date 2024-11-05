@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fdf3e6;
+    color: #4b3f3c;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Page Header */
+h1 {
+    font-size: 2.2em;
+    color: #4b2e2b;
+    margin-bottom: 20px;
+}
+
+/* Add Ingredient Link */
+a {
+    font-size: 1em;
+    color: #7b4e4a;
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid #7b4e4a;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+a:hover {
+    background-color: #7b4e4a;
+    color: #fff;
+}
+
+/* List of Ingredients */
+ul {
+    list-style-type: none;
+    padding-left: 0;
+    width: 100%;
+    max-width: 600px;
+}
+
+li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li a {
+    color: #4b3f3c;
+    margin-left: 10px;
+    font-size: 0.9em;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+li a:hover {
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    a {
+        font-size: 0.9em;
+    }
+
+    li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    li a {
+        margin-left: 0;
+        margin-top: 5px;
+    }
+}
+
+    </style>
+</head>
+<body>
+   <!-- ingredient_list.html -->
+<h1>Ingredients</h1>
+<a href="{% url 'ingredient_create' %}">Add Ingredient</a>
+<ul>
+    {% for ingredient in ingredients %}
+        <li>
+            {{ ingredient.name }} - {{ ingredient.quantity }} {{ ingredient.unit }}
+            <a href="{% url 'ingredient_update' ingredient.pk %}">Edit</a>
+            <a href="{% url 'ingredient_delete' ingredient.pk %}">Delete</a>
+        </li>
+    {% endfor %}
+</ul> 
+</body>
+</html>
+
+
