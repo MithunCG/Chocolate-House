@@ -45,12 +45,12 @@ go to http://localhost:8000/ to access application
 ## Walkthrough of the project
 
 
-![Home page](images\img-1.png)
-![Seasonal Flavours](images\img-2.png)
-![Add Seasonal Flavours](images\img-3.png)
-![Seasonal Flavours](images\img-4.png)
-![Ingrediants](images\img-5.png)
-![Add Ingrediants](images\img-6.png)
-![Ingrediants list](images\img-7.png)
-![User Suggestion](images\img-8.png)
+![Home page](images/img-1.png)
+![Seasonal Flavours](images/img-2.png)
+![Add Seasonal Flavours](images/img-3.png)
+![Seasonal Flavours](images/img-4.png)
+![Ingrediants](images/img-5.png)
+![Add Ingrediants](images/img-6.png)
+![Ingrediants list](images/img-7.png)
+![User Suggestion](images/img-8.png)
 
