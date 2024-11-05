@@ -22,7 +22,7 @@ open new terminal, leave existing terminal running
 
 
 ```bash  
-docker-compose exec web python manage.py makemigration
+docker-compose exec web python manage.py makemigrations
 ```
 
 ```bash  
