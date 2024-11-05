@@ -7,7 +7,7 @@
 
 
 ```bash  
-https://github.com/MithunCG/Chocolate-House.git
+git clone https://github.com/MithunCG/Chocolate-House.git
 ```
 
 ```bash  
