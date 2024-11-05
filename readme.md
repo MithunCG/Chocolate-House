@@ -7,7 +7,7 @@
 
 
 ```bash  
-git clone <repo-link>
+https://github.com/MithunCG/Chocolate-House.git
 ```
 
 ```bash  
